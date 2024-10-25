@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">MediMarque</string>
+    <string name="medimarque">MediMarque</string>
+    <string name="nome">Nome</string>
+    <string name="medi_marque">Medi Marque</string>
+    <string name="Usuario">Usuario</string>
+    <string name="senha">Senha</string>
+    <string name="Login">Login</string>
 </resources>
