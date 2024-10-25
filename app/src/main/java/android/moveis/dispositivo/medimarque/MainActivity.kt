@@ -1,5 +1,6 @@
 package android.moveis.dispositivo.medimarque
 
+import android.content.Intent
 import android.moveis.dispositivo.medimarque.databinding.ActivityMainBinding
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -13,11 +14,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import android.moveis.dispositivo.medimarque.ui.theme.MediMarqueTheme
+import android.moveis.dispositivo.medimarque.view.Home
 import android.view.View
-import androidx.compose.ui.graphics.Color
+import androidx.annotation.ColorInt
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
+import android.graphics.Color
 
-class MainActivity : ComponentActivity() {
+
+//classe para definir o usuário e a senha
+class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
@@ -35,11 +41,11 @@ class MainActivity : ComponentActivity() {
 
             when{
                 nome.isEmpty() -> {
-                    mensagem(it,"Coloque o seu nome!")
+                    mensagem(it,"Digite o seu nome!")
                 }senha.isEmpty() ->{
-                    mensagem(it,"Preencha a senha!")
+                    mensagem(it,"Digite sua senha!")
                 }senha.length <=5 -> {
-                    mensagem(it, menssagem "A senha precisa de pelo menos 6 caracteres!");
+                    mensagem(it, "A senha precisa ter pelo menos 6 caracteres!")
                 }else -> {
                     navegarPraHome(nome)
 
@@ -50,18 +56,22 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    private fun menssagem(view: View, mensagem: String ){
-        val snackbar = snackbar.make(view,mensagem,Snackbar.LENGHT_SHORT)
-        snackbar.setBackgroundTint(color.parseColor(colorString: "#FF0000"))
-        snackbar.setTextColor(Color.parseColor(colorString: "#FFFFFF"))
+    //pop-up de negatíva de menssagem.
+    private fun mensagem(view: View, mensagem: String){
+        val snackbar = Snackbar.make(view, mensagem, Snackbar.LENGTH_SHORT)
+        snackbar.setBackgroundTint(Color.parseColor("#FF0000"))
+        snackbar.setTextColor(Color.parseColor("#FFFFFF"))
         snackbar.show()
-
     }
 
-    private fun  navegarPraHome(nome: String){
+    private fun navegarPraHome(nome: String){
         val intent = Intent(this,Home::class.java)
-        intent.puExtra("nome",nome)
-        StartActivity(intent)
+        intent.putExtra("nome", nome)
+        startActivity(intent)
 
     }
+
+
+
+
 }
