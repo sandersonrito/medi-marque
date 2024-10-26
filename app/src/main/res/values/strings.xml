@@ -6,4 +6,6 @@
     <string name="Usuario">Usuario</string>
     <string name="senha">Senha</string>
     <string name="Login">Login</string>
+    <string name="bem_vindo_a_marcos">Bem-Vindo(a),Marcos</string>
+    <string name="especialidades">Especialidades</string>
 </resources>
