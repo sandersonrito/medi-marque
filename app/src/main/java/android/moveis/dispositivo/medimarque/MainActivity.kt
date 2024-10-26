@@ -3,20 +3,8 @@ package android.moveis.dispositivo.medimarque
 import android.content.Intent
 import android.moveis.dispositivo.medimarque.databinding.ActivityMainBinding
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import android.moveis.dispositivo.medimarque.ui.theme.MediMarqueTheme
 import android.moveis.dispositivo.medimarque.view.Home
 import android.view.View
-import androidx.annotation.ColorInt
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import android.graphics.Color
@@ -48,7 +36,6 @@ class MainActivity : AppCompatActivity() {
                     mensagem(it, "A senha precisa ter pelo menos 6 caracteres!")
                 }else -> {
                     navegarPraHome(nome)
-
                 }
 
             }

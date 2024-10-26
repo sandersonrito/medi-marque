@@ -6,7 +6,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import android.moveis.dispositivo.medimarque.R
 import android.moveis.dispositivo.medimarque.R.*
 import android.moveis.dispositivo.medimarque.databinding.ActivityHomeBinding
 
