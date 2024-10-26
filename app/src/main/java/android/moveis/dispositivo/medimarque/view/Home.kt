@@ -25,4 +25,5 @@ class Home : AppCompatActivity() {
         binding.txtNomeUsuario.text = "Bem-vindo(a),$nome"
 
     }
+
 }
