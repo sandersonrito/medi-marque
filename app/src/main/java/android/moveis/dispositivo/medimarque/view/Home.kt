@@ -19,6 +19,7 @@ class Home : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        supportActionBar?.hide()
         val nome = intent.extras?.getString("nome")
 
         binding.txtNomeUsuario.text = "Bem-vindo(a),$nome"
