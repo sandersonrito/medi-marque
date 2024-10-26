@@ -22,6 +22,7 @@ class Home : AppCompatActivity() {
         val nome = intent.extras?.getString("nome")
 
         binding.txtNomeUsuario.text = "Bem-vindo(a),$nome"
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
