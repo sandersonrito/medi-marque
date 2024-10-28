@@ -1,6 +1,8 @@
 package android.moveis.dispositivo.medimarque.view
 
 import android.annotation.SuppressLint
+import android.content.Intent
+import android.moveis.dispositivo.medimarque.R
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -30,13 +32,30 @@ class Home : AppCompatActivity() {
         binding.txtNomeUsuario.text = "Bem-vindo(a),$nome"
         val recyclerViewEspecialidades = binding.recyclerViewEspecialidades
         recyclerViewEspecialidades.layoutManager = GridLayoutManager(this, 2)
-        especialidadesAdapter = especialidadesAdapter(this,listaEspecialidades)
+        especialidadesAdapter = EspecialidadesAdapter(this,listaEspecialidades)
         recyclerViewEspecialidades.setHasFixedSize(true)
         recyclerViewEspecialidades.adapter = especialidadesAdapter
+        getEspecialidades()
+
+        binding.btAgendar.setOnClickListener {
+            val intent = Intent(this, Agendamento::class.java)
+            intent.putExtra("nome",nome)
+            startActivity(intent)
+        }
     }
 
     private fun getEspecialidades(){
 
-        val especialidade1 = Especialidades(R.drawable.img1, nome = "Cardiologista")
+        val especialidade1 = Especialidades(R.drawable.Cardiologia,"Cardiologia")
+        listaEspecialidades.add(especialidade1)
+
+        val especialidade2 = Especialidades(R.drawable.Gastroenterologia,"Gastroenterologia")
+        listaEspecialidades.add(especialidade2)
+
+        val especialidade3 = Especialidades(R.drawable.Neurologia,"Neurologia")
+        listaEspecialidades.add(especialidade3)
+
+        val especialidade4 = Especialidades(R.drawable.Oftalmologia,"Oftalmologia")
+        listaEspecialidades.add(especialidade4)
     }
 }

@@ -10,4 +10,9 @@
     <string name="especialidades">Especialidades</string>
     <string name="agendar">AGENDAR</string>
     <string name="cardiologista">Cardiologista</string>
+    <string name="agendamento">Agendamento</string>
+    <string name="data">Data</string>
+    <string name="hora">hora</string>
+    <string name="escolha_seu_m_dico_a">Escolha seu médico(a)</string>
+    <string name="lucas_sampaio_leite">Lucas Sampaio Leite</string>
 </resources>
