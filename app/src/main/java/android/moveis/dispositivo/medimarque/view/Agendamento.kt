@@ -11,6 +11,8 @@ import android.os.Build
 import android.view.View
 import androidx.annotation.RequiresApi
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.ktx.Firebase
 import java.util.Calendar
 
 class Agendamento : AppCompatActivity() {
@@ -82,13 +84,13 @@ class Agendamento : AppCompatActivity() {
                     mensagem(it, "Coloque uma data!", "#FF0000")
                 }
                 medico1.isChecked && data.isNotEmpty() && hora.isNotEmpty() -> {
-                    mensagem(it, "Agendamento realizado com sucesso!", "#FF03DAC5")
+                    salvarAgendamento(it, nome,"Lucas Sampaio Leite", data, hora)
                 }
                 medico2.isChecked && data.isNotEmpty() && hora.isNotEmpty() -> {
-                    mensagem(it, "Agendamento realizado com sucesso!", "#FF03DAC5")
+                    salvarAgendamento(it, nome,"Rosiberto Santos Goncalves", data, hora)
                 }
                 medico3.isChecked && data.isNotEmpty() && hora.isNotEmpty() -> {
-                    mensagem(it, "Agendamento realizado com sucesso!", "#FF03DAC5")
+                    salvarAgendamento(it, nome,"Magno Felipe Holanda", data, hora)
                 }
                 else -> {
                     mensagem(it, "Escolha um médico !", "#FF0000")
@@ -99,8 +101,30 @@ class Agendamento : AppCompatActivity() {
 
     private fun mensagem(view: View, mensagem: String,cor: String){
         val snackbar = Snackbar.make(view,mensagem,Snackbar.LENGTH_SHORT)
-        snackbar.setBackgroundTint(cor)
+        snackbar.setBackgroundTint(Color.parseColor(cor))
         snackbar.setTextColor(Color.parseColor("#FFFFFF"))
         snackbar.show()
+    }
+
+    //método de salvar os agendamentos.
+
+    private fun salvarAgendamento(view: View, client: String, medico: String, data: String, hora: String){
+
+        val db = FirebaseFirestore.getInstance()
+
+        val dadosUsuario = hashMapOf(
+            "cliente" to client,
+            "medico" to medico,
+            "data" to data,
+            "hora" to hora
+        )
+
+        db.collection("agendamento").document(client).set(dadosUsuario).addOnCompleteListener {
+            mensagem(view,"Agendamento realizado com sucesso!", "#FF03DAC5")
+        }.addOnFailureListener {
+            mensagem(view, "Erro no servidor!", "#FF0000")
+
+        }
+
     }
 }
