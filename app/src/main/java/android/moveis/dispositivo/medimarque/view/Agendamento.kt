@@ -1,15 +1,16 @@
 package android.moveis.dispositivo.medimarque.view
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import android.moveis.dispositivo.medimarque.R
 import android.moveis.dispositivo.medimarque.databinding.ActivityAgendamentoBinding
 import android.os.Build
 import android.view.View
 import androidx.annotation.RequiresApi
+import com.google.android.material.snackbar.Snackbar
 import java.util.Calendar
 
 class Agendamento : AppCompatActivity() {
@@ -72,27 +73,34 @@ class Agendamento : AppCompatActivity() {
 
             when{
                 hora.isEmpty() -> {
-
+                    mensagem(it, "Preencha o horário", "#FF0000")
                 }
                 hora < "8:00" && hora > "19:00" -> {
-
+                    mensagem(it,"Medi Marque Esta Fechado - horário de atendimento das 08:00 as 19:00", "#FF0000")
                 }
                 data.isEmpty() -> {
-
+                    mensagem(it, "Coloque uma data!", "#FF0000")
                 }
                 medico1.isChecked && data.isNotEmpty() && hora.isNotEmpty() -> {
-
+                    mensagem(it, "Agendamento realizado com sucesso!", "#FF03DAC5")
                 }
                 medico2.isChecked && data.isNotEmpty() && hora.isNotEmpty() -> {
-
+                    mensagem(it, "Agendamento realizado com sucesso!", "#FF03DAC5")
                 }
                 medico3.isChecked && data.isNotEmpty() && hora.isNotEmpty() -> {
-
+                    mensagem(it, "Agendamento realizado com sucesso!", "#FF03DAC5")
                 }
                 else -> {
-
+                    mensagem(it, "Escolha um médico !", "#FF0000")
                 }
             }
         }
+    }
+
+    private fun mensagem(view: View, mensagem: String,cor: String){
+        val snackbar = Snackbar.make(view,mensagem,Snackbar.LENGTH_SHORT)
+        snackbar.setBackgroundTint(cor)
+        snackbar.setTextColor(Color.parseColor("#FFFFFF"))
+        snackbar.show()
     }
 }
