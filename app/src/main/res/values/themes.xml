@@ -1,7 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!--Tema base da aplicação-->
 
-    <style name="Theme.MediMarque" parent="android:Theme.Material.Light.NoActionBar" >
+    <style name="Theme.MediMarque" parent="Theme.AppCompat.Light" >
         <!--cores primarias-->
         <item name="colorPrimary">@color/verde_projeto</item>
         <item name="colorPrimaryVariant">@color/verde_projeto</item>

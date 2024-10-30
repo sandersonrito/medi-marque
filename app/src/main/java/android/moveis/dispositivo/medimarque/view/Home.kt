@@ -4,11 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.moveis.dispositivo.medimarque.R
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import android.moveis.dispositivo.medimarque.R.*
 import android.moveis.dispositivo.medimarque.adapter.EspecialidadesAdapter
 import android.moveis.dispositivo.medimarque.databinding.ActivityHomeBinding
 import android.moveis.dispositivo.medimarque.model.Especialidades
@@ -46,16 +42,16 @@ class Home : AppCompatActivity() {
 
     private fun getEspecialidades(){
 
-        val especialidade1 = Especialidades(R.drawable.Cardiologia,"Cardiologia")
+        val especialidade1 = Especialidades(R.drawable.cardiologia,"Cardiologia")
         listaEspecialidades.add(especialidade1)
 
-        val especialidade2 = Especialidades(R.drawable.Gastroenterologia,"Gastroenterologia")
+        val especialidade2 = Especialidades(R.drawable.gastroenterologia,"Gastroenterologia")
         listaEspecialidades.add(especialidade2)
 
-        val especialidade3 = Especialidades(R.drawable.Neurologia,"Neurologia")
+        val especialidade3 = Especialidades(R.drawable.neurologia,"Neurologia")
         listaEspecialidades.add(especialidade3)
 
-        val especialidade4 = Especialidades(R.drawable.Oftalmologia,"Oftalmologia")
+        val especialidade4 = Especialidades(R.drawable.oftalmologia,"Oftalmologia")
         listaEspecialidades.add(especialidade4)
     }
 }
