@@ -8,6 +8,8 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import android.graphics.Color
+import com.google.firebase.Firebase
+import com.google.firebase.database.database
 
 
 //classe para definir o usuário e a senha
